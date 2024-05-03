@@ -10,7 +10,8 @@ def lookup():
         for vl in res:
             l = str(vl).strip('\"v=spf1 ')
             f = l.rstrip('\'lla-')
-            p = '\"' + f + ' \"'
+            s = f.rstrip(" ~")
+            p = '\"' + s + ' \"'
             ls.append(p)
 
     print(ls)
