@@ -8,12 +8,17 @@ def lookup():
     for r in records: 
         res = dns.resolver.resolve(r, 'txt')
         for vl in res:
-            l = str(vl).strip("\"v=spf1 ")
-            f = l.rstrip("\'lla-")
-            p = "\"" + f + " \""
+            l = str(vl).strip('\"v=spf1 ')
+            f = l.rstrip('\'lla-')
+            p = '\"' + f + ' \"'
             ls.append(p)
 
     print(ls)
 
-if __name__ == "__main__":
+    with open('dat.txt', 'a+') as f:
+        for i in ls: 
+            f.write(i)
+
+
+if __name__ == '__main__':
     lookup()
