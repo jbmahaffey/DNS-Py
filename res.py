@@ -14,12 +14,12 @@ def lookup():
             p = '\"' + s + ' \"'
             ls.append(p)
 
-    print(ls)
-
     with open('dat.txt', 'a+') as f:
-        for i in ls: 
-            f.write(i)
-
+        for i in ls:
+            new = i.split()
+            for w in new: 
+                if 'ip4:' in w or 'include:' in w or 'ip6' in w or '\"' in w:
+                    f.write(w + ' ')
 
 if __name__ == '__main__':
     lookup()
